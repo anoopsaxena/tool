@@ -11,7 +11,7 @@ def get_sharepoint_token():
     tenant_id = "ce4ac0be-ae77-4bec-8e8b-464207afffde"
     client_id = "88bab5f9-402d-4e44-b9bb-2bbe3cd43a45"
     client_assertion = "eyJ4NXQiOiJwdE15RlFXL1pmanc3OWcrUGdqNFNxS2pNcFE9IiwidHlwIjoiSldUIiwiYWxnIjoiUlMyNTYifQ.eyJleHAiOjE4MjgzNDQ0NTksInN1YiI6Ijg4YmFiNWY5LTQwMmQtNGU0NC1iOWJiLTJiYmUzY2Q0M2E0NSIsIm5iZiI6MTczMzY1MDA1OSwianRpIjoiZmJjNzRmY2MtYWQ0ZC00N2Q3LTk1M2UtNjA0Y2NlNmQ4M2ZlIiwiYXVkIjoiaHR0cHM6Ly9sb2dpbi5taWNyb3NvZnRvbmxpbmUuY29tL2NlNGFjMGJlLWFlNzctNGJlYy04ZThiLTQ2NDIwN2FmZmZkZS9vYXV0aDIvdjIuMC90b2tlbiIsImlzcyI6Ijg4YmFiNWY5LTQwMmQtNGU0NC1iOWJiLTJiYmUzY2Q0M2E0NSJ9.aJHHoEEw_otVyzBJUQ1Mki7nSrNNz-v2fRf-JC-uv1d6hRedl88ThNW3xuvxINPlexlIBMqZtDGSFve4mxnL7x1yPx4zKpAG4ROdNah4YnzpBPaEG_qTB25a8nc47PB8PyOetSBSH3uAdR2aU_3UcE-sQ0maiacDRJlpnz2CAp1iwIs3FHP5eGvKR6zCcD_unWg_D8Qe5PZZLEUM7ig6GnpFoDbKytrgW6SdAiw7_JePK67tj-tO2MGAeVbdSS3DJpwI1tAvMNho7pGl6ayGrMYdgKyY8HP9aPpVj8KQPOoiAQWK5BcNKLT6LjUdI208yrFKW01m2rD9vH7VaGRkog"
-    sharepoint_scope = "https://cccgroup.sharepoint.com/.default"
+    sharepoint_scope = "https://raxgroup.sharepoint.com/.default"
     token_url = f"https://login.microsoftonline.com/{tenant_id}/oauth2/v2.0/token"
 
     data = {
@@ -28,8 +28,8 @@ def get_sharepoint_token():
     return response.json().get("access_token")
 
 def send_email_notification(subject, body):
-    sender_email = "noreply@ccc.net"
-    receiver_email =["asaxena@ccc.net"]
+    sender_email = "noreply@rax.net"
+    receiver_email =["asaxena@rax.net"]
     msg = MIMEMultipart()
     msg['From'] = sender_email
     msg['To'] = ", ".join(receiver_email)
@@ -37,7 +37,7 @@ def send_email_notification(subject, body):
     msg.attach(MIMEText(body, 'plain'))
 
     try:
-        server = smtplib.SMTP('mailhost.ccc.net', 25)
+        server = smtplib.SMTP('mailhost.rax.net', 25)
         server.sendmail(sender_email, receiver_email, msg.as_string())
         server.quit()
         print("Email notification sent successfully.")
@@ -88,7 +88,7 @@ def get_sharepoint_token_function():
         tenant_id = "ce4ac0be-ae77-4bec-8e8b-464207afffde"
         client_id = "88bab5f9-402d-4e44-b9bb-2bbe3cd43a45"
         client_assertion = "eyJ4NXQiOiJwdE15RlFXL1pmanc3OWcrUGdqNFNxS2pNcFE9IiwidHlwIjoiSldUIiwiYWxnIjoiUlMyNTYifQ.eyJleHAiOjE4MjgzNDQ0NTksInN1YiI6Ijg4YmFiNWY5LTQwMmQtNGU0NC1iOWJiLTJiYmUzY2Q0M2E0NSIsIm5iZiI6MTczMzY1MDA1OSwianRpIjoiZmJjNzRmY2MtYWQ0ZC00N2Q3LTk1M2UtNjA0Y2NlNmQ4M2ZlIiwiYXVkIjoiaHR0cHM6Ly9sb2dpbi5taWNyb3NvZnRvbmxpbmUuY29tL2NlNGFjMGJlLWFlNzctNGJlYy04ZThiLTQ2NDIwN2FmZmZkZS9vYXV0aDIvdjIuMC90b2tlbiIsImlzcyI6Ijg4YmFiNWY5LTQwMmQtNGU0NC1iOWJiLTJiYmUzY2Q0M2E0NSJ9.aJHHoEEw_otVyzBJUQ1Mki7nSrNNz-v2fRf-JC-uv1d6hRedl88ThNW3xuvxINPlexlIBMqZtDGSFve4mxnL7x1yPx4zKpAG4ROdNah4YnzpBPaEG_qTB25a8nc47PB8PyOetSBSH3uAdR2aU_3UcE-sQ0maiacDRJlpnz2CAp1iwIs3FHP5eGvKR6zCcD_unWg_D8Qe5PZZLEUM7ig6GnpFoDbKytrgW6SdAiw7_JePK67tj-tO2MGAeVbdSS3DJpwI1tAvMNho7pGl6ayGrMYdgKyY8HP9aPpVj8KQPOoiAQWK5BcNKLT6LjUdI208yrFKW01m2rD9vH7VaGRkog"  # Replace with your dynamically generated assertion
-        sharepoint_scope = "https://cccgroup.sharepoint.com/.default"
+        sharepoint_scope = "https://raxgroup.sharepoint.com/.default"
         token_url = f"https://login.microsoftonline.com/{tenant_id}/oauth2/v2.0/token"
 
         data = {
@@ -115,7 +115,7 @@ class Token:
         self.tokenType = "Bearer"  # Standard token type
         self.accessToken = token_str
 def main():
-    site_url = "https://cccgroup.sharepoint.com/sites/NFSProject2"
+    site_url = "https://raxgroup.sharepoint.com/sites/NFSProject2"
     source_folder_url = "/sites/NFSProject2/Shared Documents/02- Talisman Files/Isometric_Files"
     local_input_dir = 'D:/ismometricFiles/zipFiles'
     local_output_dir = 'D:/ismometricFiles'

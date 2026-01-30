@@ -9,8 +9,8 @@ output_csv_file = 'D:/ismometricFiles/FeedFiles/mailAttach.csv'
 
 
 def send_email_notification(subject, body):
-    sender_email = "noreply@ccc.net"
-    receiver_email =["asaxena@ccc.net","skassab@ccc.net","msantina@ccc.net" ,"audwan@ccc.net","sjoy@ccc.net"]   
+    sender_email = "noreply@rax.net"
+    receiver_email =["asaxena@rax.net","skassab@rax.net","msantina@rax.net" ,"audwan@rax.net","sjoy@rax.net"]   
     #msg = MIMEMultipart()  ::30Dec
     msg = MIMEMultipart("alternative")
     msg['From'] = sender_email
@@ -20,7 +20,7 @@ def send_email_notification(subject, body):
     html_part = MIMEText(body, "html")
     msg.attach(html_part)
     try:
-        server = smtplib.SMTP('mailhost.ccc.net', 25)
+        server = smtplib.SMTP('mailhost.rax.net', 25)
         server.sendmail(sender_email, receiver_email, msg.as_string())
         server.quit()
         print("Email notification sent successfully.")

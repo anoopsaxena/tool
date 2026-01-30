@@ -7,8 +7,8 @@ import os
 import shutil
 
 def send_email_notification(subject, body, attachments=None):
-    sender_email = "noreply@ccc.net"
-    receiver_email = ["asaxena@ccc.net"]#,"waa@ccc.net","audwan@ccc.net","skassab@ccc.net","msantina@ccc.net","malatif@ccc.net"]
+    sender_email = "noreply@rax.net"
+    receiver_email = ["asaxena@rax.net","malatif@rax.net"]
 
     # Create the email message
     msg = MIMEMultipart()
@@ -38,7 +38,7 @@ def send_email_notification(subject, body, attachments=None):
     # Send the email
     try:
         # Set up the server
-        server = smtplib.SMTP('mailhost.ccc.net', 25)
+        server = smtplib.SMTP('mailhost.rax.net', 25)
         server.sendmail(sender_email, receiver_email, msg.as_string())
         server.quit()
         print("Email notification sent successfully.")

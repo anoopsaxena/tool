@@ -63,7 +63,7 @@ session.mount("https://", HTTPAdapter(max_retries=retries))
 
 
 def fetch_and_zip_files(doc_id, dcg_internal_trns):
-    api_url = f"https://dms.ccc.com.qa/nfs-doc-manage-api/api/mail/files?docId={doc_id}"
+    api_url = f"https://dms.rax.com.qa/nfs-doc-manage-api/api/mail/files?docId={doc_id}"
     print("api_url  ###", api_url)
     response = session.get(api_url, timeout=60, verify=True)
 
@@ -140,7 +140,7 @@ def main(dcg_internal_trns):
 
     # SharePoint credentials
     token_func = get_sharepoint_token_function()
-    site_url = "https://cccgroup.sharepoint.com/sites/NFSProject2"
+    site_url = "https://raxgroup.sharepoint.com/sites/NFSProject2"
     parent_folder_url = "/sites/NFSProject2/Shared Documents/02- Talisman Files/Isometric_Files"
 
     # Process documents
